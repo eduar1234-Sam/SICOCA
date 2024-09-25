@@ -1,0 +1,25 @@
+<div class="container menu-container">
+    <p class="text-center">Seleccione su producto</p>
+    <div class="container">
+        <div class="row text-center">
+            <div *ngFor="let item of items" class="col-md-4">
+                <!-- Contenido de la columna -->
+                <div class="card" (click)="loadItem(item)">
+                  <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <p class="card-text">{{ item.price }}</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showModal">
+    <div class="mod-select">
+        <div class="mod">
+            <div class="closeModal"><p class="close" (click)="closeModal()">Cerrar</p></div>
+            <app-selection-modal [items]="itm" (mssg)="message($event)"></app-selection-modal>
+        </div>
+    </div>
+</div>    

@@ -1,0 +1,10 @@
+.princ-cont{
+    max-width: 720px;
+    padding: 2% 3%;
+}
+
+.princ-cont .title{
+    color: #2dae2d;
+    font-size: 50px;
+}
+

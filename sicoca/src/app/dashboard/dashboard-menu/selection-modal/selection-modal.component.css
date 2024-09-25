@@ -1,0 +1,16 @@
+.editable{
+    width: 70px; /* Ajusta el ancho del campo */
+    text-align: center; /* Alinea el texto al centro */
+    margin: 0 auto;
+}
+
+.buttons{
+    margin-top: 3%;
+    align-content: center;
+    align-items: center;
+    text-align: right;
+}
+
+.cancel{
+    margin-left: 2%;
+}
