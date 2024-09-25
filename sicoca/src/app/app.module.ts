@@ -1,9 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from '../environments/environment';
+import { BrowserModule } from '@angular/platform-browser';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth'; // Importar correctamente
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { environment } from '../environments/environment'; 
 import { AppComponent } from './app.component';
+import { FirebaseService } from './firebase.service';
 
 @NgModule({
   declarations: [
@@ -11,10 +13,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule // si necesitas autenticación
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()) // Asegúrate de que esto esté aquí
   ],
-  providers: [],
+  providers: [
+    FirebaseService // Asegúrate de que tu servicio esté aquí
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
